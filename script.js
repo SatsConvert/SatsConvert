@@ -47,6 +47,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 
+  // Function to copy Lightning address to clipboard
+  function copyToClipboard() {
+    const lightningAddress = document.getElementById("lightning-address").textContent;
+    navigator.clipboard.writeText(lightningAddress)
+      .then(() => {
+        alert("Lightning address copied to clipboard!");
+      })
+      .catch(err => {
+        console.error("Failed to copy text: ", err);
+        alert("Failed to copy. Please try again.");
+      });
+  }
+
   updateUSD();
   setInterval(updateUSD, 60000);
 });
