@@ -68,3 +68,33 @@ tr:hover {
   bottom: 0;
   width: 100%;
 }
+.tip-jar {
+  margin-top: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #1A2526;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.tip-jar br + * {
+  color: #F7931A;
+  font-weight: 700;
+}
+.tip-jar button {
+  display: block;
+  margin-top: 5px;
+  padding: 5px 10px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: #fff;
+  background-color: #F7931A;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.tip-jar button:hover {
+  background-color: #FFD700;
+}
