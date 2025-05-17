@@ -47,4 +47,4 @@ function startCountdown(seconds, element) {
 
 // Initial update and start the interval
 updateUSD();
-setInterval(updateUSD, 60000); 
+setInterval(updateUSD, 60000);
