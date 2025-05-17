@@ -41,4 +41,4 @@ document.addEventListener("DOMContentLoaded", () => {
       seconds--;
       if (seconds >= 0) {
         element.textContent = `Next update in ${seconds} seconds`;
-      } else { 
+      } else {
