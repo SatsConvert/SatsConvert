@@ -68,10 +68,6 @@ tr:hover {
   bottom: 0;
   width: 100%;
 }
-.spacer {
-  height: 20px; /* Adjust this value to control the blank line height */
-  width: 100%;
-}
 .tip-jar {
   margin-top: 15px;
   font-family: 'Roboto', sans-serif;
@@ -82,7 +78,7 @@ tr:hover {
   bottom: 0;
   width: 100%;
 }
-.tip-jar br + * {
+.lightning-address {
   color: #F7931A;
   font-weight: 700;
 }
