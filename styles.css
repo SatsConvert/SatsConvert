@@ -26,7 +26,7 @@ table {
 th, td {
   padding: 12px 15px;
   text-align: right;
-  border-bottom:  convencional1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 th {
   background: linear-gradient(135deg, #F7931A 0%, #FFD700 100%);
@@ -47,4 +47,12 @@ tr:hover {
 .usd {
   color: #F7931A;
   font-weight: 700;
+}
+.countdown {
+  margin-top: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #F7931A;
+  font-weight: 700;
+  text-align: center;
 }
