@@ -42,3 +42,46 @@ document.addEventListener("DOMContentLoaded", () => {
       if (seconds >= 0) {
         element.textContent = `Next update in ${seconds} seconds`;
       } else {
+        clearInterval(countdown);
+      }
+    }, 1000);
+  }
+
+  function copyToClipboard() {
+    const lightningAddress = document.getElementById("lightning-address").textContent;
+    const tempInput = document.createElement("input");
+    document.body.appendChild(tempInput);
+    tempInput.value = lightningAddress;
+    tempInput.select();
+    try {
+      let success = false;
+      // Try modern clipboard API first
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(lightningAddress).then(() => {
+          success = true;
+          alert("Lightning address copied to clipboard!");
+        }).catch(err => {
+          console.error("Modern clipboard failed: ", err);
+        });
+      }
+      // Fallback to execCommand if modern API fails
+      if (!success) {
+        document.execCommand('copy');
+        success = document.execCommand('copy');
+        if (success) {
+          alert("Lightning address copied to clipboard!");
+        } else {
+          throw new Error("Copy failed");
+        }
+      }
+    } catch (err) {
+      console.error("Failed to copy text: ", err);
+      alert("Failed to copy. Please try again or copy manually.");
+    } finally {
+      document.body.removeChild(tempInput);
+    }
+  }
+
+  updateUSD();
+  setInterval(updateUSD, 60000);
+});
