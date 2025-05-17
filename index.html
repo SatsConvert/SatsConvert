@@ -8,12 +8,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>BTC to Satoshis to USD Converter</h1>
+  <h1>Satoshi to BTC to USD Converter</h1>
   <table id="satoshiTable">
     <thead>
       <tr>
         <th>BTC</th>
-        <th>Sats</th>
+        <th>Satoshis</th>
         <th>USD</th>
       </tr>
     </thead>
@@ -30,6 +30,11 @@
     </tbody>
   </table>
   <div id="countdown" class="countdown"></div>
+  <div class="tip-jar">
+    Tip jar lightning address:<br>
+    <span id="lightning-address">buffcrab14@primal.net</span>
+    <button onclick="copyToClipboard()">Copy</button>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
