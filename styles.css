@@ -68,6 +68,10 @@ tr:hover {
   bottom: 0;
   width: 100%;
 }
+.spacer {
+  height: 20px; /* Adjust this value to control the blank line height */
+  width: 100%;
+}
 .tip-jar {
   margin-top: 15px;
   font-family: 'Roboto', sans-serif;
@@ -81,20 +85,4 @@ tr:hover {
 .tip-jar br + * {
   color: #F7931A;
   font-weight: 700;
-}
-.tip-jar button {
-  display: block;
-  margin-top: 5px;
-  padding: 5px 10px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  color: #fff;
-  background-color: #F7931A;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.tip-jar button:hover {
-  background-color: #FFD700;
 }
