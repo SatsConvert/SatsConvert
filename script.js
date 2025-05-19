@@ -86,4 +86,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateUSD();
   setInterval(updateUSD, 60000);
-}); 
+});
