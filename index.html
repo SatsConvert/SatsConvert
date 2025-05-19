@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BTC to Satoshi to USD</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css.txt">
 </head>
 <body>
   <h1>BTC to Satoshi to USD</h1>
@@ -29,17 +29,26 @@
       <tr><td>1.00000000</td><td>100,000,000</td><td class="usd"></td></tr>
     </tbody>
   </table>
-  <div id="usdToSats" class="conversion-box">
+
+  <div class="conversion-box">
     <p>1 USD = <span id="satsValue"></span> sats</p>
   </div>
-  <div id="customUsdToSats" class="conversion-box">
-    <p><input type="number" id="usdInput" min="0" step="0.01" placeholder="e.g., 1.00"> USD = <span id="customSatsValue"></span> sats</p>
+
+  <div class="conversion-box">
+    <p><input type="number" id="usdInput" min="0" step="0.01" placeholder="USD"> USD = <span id="customSatsValue"></span> sats</p>
   </div>
-  <div id="countdown" class="countdown"></div>
+
+  <div class="conversion-box">
+    <p><input type="number" id="satsInput" min="0" step="1" placeholder="Sats"> Sats = <span id="customUsdValue"></span> USD</p>
+  </div>
+
+  <div class="countdown" id="countdown"></div>
+
   <div class="tip-jar">
     Tip jar lightning address:<br>
     <span class="lightning-address">buffcrab14@primal.net</span>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
