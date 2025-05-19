@@ -1,119 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BTC to Satoshi to USD</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f5f5f5;
-      color: #1A2526;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
-    h1 {
-      font-family: 'Montserrat', sans-serif;
-      color: #F7931A;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    table {
-      width: 90%;
-      max-width: 600px;
-      border-collapse: collapse;
-      background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    th, td {
-      padding: 12px 15px;
-      text-align: right;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background: linear-gradient(135deg, #F7931A 0%, #FFD700 100%);
-      color: #fff;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    td {
-      color: #1A2526;
-    }
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-    tr:hover {
-      background-color: #fff3e0;
-    }
-    .usd {
-      color: #F7931A;
-      font-weight: 700;
-    }
-    .highlight {
-      animation: highlight 1s ease-in-out;
-      will-change: background-color;
-    }
-    @keyframes highlight {
-      0% { background-color: #FFD700; }
-      100% { background-color: transparent; }
-    }
-    .countdown {
-      margin-top: 20px;
-      font-family: 'Roboto', sans-serif;
-      font-size: 16px;
-      color: #F7931A;
-      font-weight: 700;
-      text-align: center;
-      width: 100%;
-    }
-    .tip-jar {
-      margin-top: 15px;
-      font-family: 'Roboto', sans-serif;
-      font-size: 14px;
-      color: #1A2526;
-      text-align: center;
-      width: 100%;
-    }
-    .lightning-address {
-      color: #F7931A;
-      font-weight: 700;
-    }
-    .conversion-box {
-      margin-top: 20px;
-      width: 70%;
-      max-width: 400px;
-      background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      padding: 15px;
-      text-align: center;
-      font-family: 'Roboto', sans-serif;
-      font-size: 16px;
-      color: #1A2526;
-    }
-    .conversion-box p {
-      margin: 0;
-    }
-    .conversion-box #satsValue,
-    .conversion-box #customSatsValue,
-    .conversion-box #customUsdValue {
-      color: #F7931A;
-      font-weight: 700;
-    }
-    .conversion-box input {
-      padding: 5px;
-      font-size: 16px;
-      width: 70px;
-      text-align: right;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      margin: 0 3px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css.txt">
 </head>
+<body>
+  <h1>BTC to Satoshi to USD</h1>
+  <table id="satoshiTable">
+    <thead>
+      <tr>
+        <th>BTC</th>
+        <th>Sats</th>
+        <th>USD</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>0.00000001</td><td>1</td><td class="usd"></td></tr>
+      <tr><td>0.00000010</td><td>10</td><td class="usd"></td></tr>
+      <tr><td>0.00000100</td><td>100</td><td class="usd"></td></tr>
+      <tr><td>0.00001000</td><td>1,000</td><td class="usd"></td></tr>
+      <tr><td>0.00010000</td><td>10,000</td><td class="usd"></td></tr>
+      <tr><td>0.00100000</td><td>100,000</td><td class="usd"></td></tr>
+      <tr><td>0.01000000</td><td>1,000,000</td><td class="usd"></td></tr>
+      <tr><td>0.10000000</td><td>10,000,000</td><td class="usd"></td></tr>
+      <tr><td>1.00000000</td><td>100,000,000</td><td class="usd"></td></tr>
+    </tbody>
+  </table>
+
+  <div class="conversion-box">
+    <p>1 USD = <span id="satsValue"></span> sats</p>
+  </div>
+
+  <div class="conversion-box">
+    <p><input type="number" id="usdInput" min="0" step="0.01" placeholder="USD"> USD = <span id="customSatsValue"></span> sats</p>
+  </div>
+
+  <div class="conversion-box">
+    <p><input type="number" id="satsInput" min="0" step="1" placeholder="Sats"> Sats = <span id="customUsdValue"></span> USD</p>
+  </div>
+
+  <div class="countdown" id="countdown"></div>
+
+  <div class="tip-jar">
+    Tip jar lightning address:<br>
+    <span class="lightning-address">buffcrab14@primal.net</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
