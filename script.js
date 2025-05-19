@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const satsValueElement = document.getElementById("satsValue");
     const usdInput = document.getElementById("usdInput");
     const customSatsValueElement = document.getElementById("customSatsValue");
-    const satsInput = document.getElementById("satsInput");
-    const customUsdValueElement = document.getElementById("customUsdValue");
 
     try {
       const response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
@@ -41,11 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
         convertCustomUsdToSats();
       }
 
-      // Update custom Sats to USD conversion if input exists
-      if (satsInput.value) {
-        convertCustomSatsToUsd();
-      }
-
     } catch (error) {
       console.error("Error updating USD values:", error.message);
       usdCells.forEach(cell => {
@@ -54,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       satsValueElement.textContent = "Error";
       customSatsValueElement.textContent = "Error";
-      customUsdValueElement.textContent = "Error";
     } finally {
       startCountdown(60, countdownElement);
     }
@@ -75,21 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
     customSatsValueElement.textContent = usdToSats.toLocaleString('en-US', { maximumFractionDigits: 0 });
   }
 
-  function convertCustomSatsToUsd() {
-    const satsInput = document.getElementById("satsInput");
-    const customUsdValueElement = document.getElementById("customUsdValue");
-    const satsAmount = parseFloat(satsInput.value);
-
-    if (isNaN(satsAmount) || satsAmount < 0 || !currentBtcPrice) {
-      customUsdValueElement.textContent = "Invalid input";
-      return;
-    }
-
-    const satsPerBtc = 100000000;
-    const usdValue = (satsAmount / satsPerBtc) * currentBtcPrice;
-    customUsdValueElement.textContent = "$" + usdValue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
-
   function startCountdown(seconds, element) {
     if (!element) return;
     element.textContent = `Next update in ${seconds} seconds`;
@@ -103,12 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 
-  // Add event listeners for real-time conversion
+  // Add event listener for real-time conversion
   const usdInput = document.getElementById("usdInput");
   usdInput.addEventListener("input", convertCustomUsdToSats);
-
-  const satsInput = document.getElementById("satsInput");
-  satsInput.addEventListener("input", convertCustomSatsToUsd);
 
   updateUSD();
   setInterval(updateUSD, 60000);
